@@ -2,8 +2,8 @@ const express = require('express');
 const app = express();
 
 app.use(express.json());
-// let notes = [];
-// let idCounter = 1;
+let notes = [];
+let idCounter = 1;
 const port = "http://localhost:3000";
 
 // Route 1: Route Dasar
