@@ -8,6 +8,7 @@ const tambahTugas = (todoList) =>
 }
 const tampilkanTugas = (todoList) => 
 {
+    console.log(`Jumlah tugas: ${todoList.length}`);
     for(let i = 0; i < todoList.length;i++)
     {
         console.log(`No. ${i+1}: ${todoList[i]}`);
@@ -15,13 +16,23 @@ const tampilkanTugas = (todoList) =>
 }
 const hapusTugas = (todoList) => 
 {
-    let delTugas = prompt(`\n\nHapus tugas nomor? (1-${todoList.length}) `);
+    let delTugas = prompt(`\n\nHapus tugas nomor? (1-${todoList.length}): `);
+    if (delTugas < 1 || delTugas > todoList.length || isNaN(delTugas))
+    {
+        console.log(`Tidak valid, hanya bisa dari 1 - ${todoList.length}`);
+        return;
+    }
     todoList.splice(delTugas-1, 1);
     console.log("Tugas berhasil dihapus! ");
 }
 const updateTugas = (todoList) => 
 {
-    let NoTugas = prompt(`\n\nEdit tugas nomor? (1-${todoList.length}) `);
+    let NoTugas = prompt(`\n\nEdit tugas nomor? (1-${todoList.length}): `);
+    if (NoTugas < 1 || NoTugas > todoList.length || isNaN(NoTugas))
+    {
+        console.log(`Tidak valid, hanya bisa dari 1 - ${todoList.length}: `);
+        return;
+    }
     let editTugas = prompt("Masukkan tugas baru: ");
     todoList.splice(NoTugas-1, 1, editTugas);
     console.log("Tugas Berhasil diedit! ");
@@ -48,10 +59,10 @@ while (pilihan === true){
         updateTugas(todoList);
     } else if (input === 5){
         pilihan = false;
+        console.log("\nThanks for using!");
     } else {
         console.log("\nTidak valid! Cuma bisa pilihan 1-5");
     }
-    console.log("\nThanks for using!");
 }
 
 // .splice = index 1, hapus 2 (index 1, 2), ganti 'ayam','mangga';
