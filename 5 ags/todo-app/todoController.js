@@ -42,6 +42,7 @@ const hapusTugas = (todoList) =>
     }
     todoList.splice(delTugas-1, 1);
     console.log("Tugas berhasil dihapus! ");
+    simpanData(todoList);
 };
 
 const updateTugas = (todoList) => 
