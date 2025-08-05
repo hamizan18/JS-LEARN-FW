@@ -4,8 +4,13 @@ const prompt = require('prompt-sync')();
 
 const loadData = () => 
 {
-    const data = fs.readFileSync("todoDB.json", "utf-8");
-    return JSON.parse(data);
+    try {
+        const data = fs.readFileSync("todoDB.json", "utf-8");
+        return data.trim() === '' ? [] : JSON.parse(data);
+    } catch (err) {
+        console.log("File tidak ditemukan atau rusak, buat baru!");
+        return [];
+    }
 };
 
 const simpanData = (data) =>
