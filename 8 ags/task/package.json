@@ -4,6 +4,7 @@
   "main": "index.js",
   "dependencies": {
     "ansi-regex": "^4.1.1",
+    "chalk": "^5.5.0",
     "fs": "^0.0.1-security",
     "promises": "^0.2.5",
     "prompt-sync": "^4.2.0",

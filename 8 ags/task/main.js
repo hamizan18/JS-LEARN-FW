@@ -32,4 +32,10 @@ async function main(){
     console.log("Syudone!");
 }
 
-main().catch(err => console.log("Error", err));
+main().catch(err => {
+    if (err.code === 'ENOENT'){
+        console.error("File data.json tidak ditemukan!");
+    } else {
+        console.error("Terjadi kesalahan: ", err.message);
+    }
+});
