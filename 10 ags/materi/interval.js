@@ -3,10 +3,11 @@ function delay(ms){
 }
 
 function lomding(){
+    const frames = ['|', '/', '-', '\\'];
     let i = 0;
     return setInterval(() => {
-        process.stdout.write(`\rProgress: ${i++}/10`);
-    }, 200);
+        process.stdout.write(`\r${frames[i++ % frames.length]} Loading..`);
+    }, 100);
 }
 
 async function main(){
@@ -14,6 +15,7 @@ async function main(){
     console.log("Mencari...");
 
     const loading = lomding();
+    await delay(2500);
     clearInterval(loading);
     console.log("\rSyudone!!");
 }
