@@ -3,20 +3,19 @@ function delay(ms){
 }
 
 function lomding(){
-    let count = 0;
-    setInterval(() => {
-        process.stdout.write(`\rProgress: ${count++}/10`);
-        if (count > 10) return setInterval();
-    }, 500);
+    let i = 0;
+    return setInterval(() => {
+        process.stdout.write(`\rProgress: ${i++}/10`);
+    }, 200);
 }
 
 async function main(){
 
+    console.log("Mencari...");
+
     const loading = lomding();
-    console.log(loading);
     clearInterval(loading);
-    await delay(300);
-        console.log("\nSyudone!!");
+    console.log("\rSyudone!!");
 }
 main();
 // /r = dipake disatu baris, baris sebelumnya bakal lenyap ditimpa yg baru

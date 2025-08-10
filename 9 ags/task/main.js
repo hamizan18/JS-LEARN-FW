@@ -21,7 +21,7 @@ async function main(){
     clearInterval(spin);
     console.log("\rData siap!");
 
-    await delay(500) // Tunggu 800 milidetik
+    await delay(500) // Tunggu 500 milidetik
 
     // // Ambil data dari JSON
     const data = await fs.readFile('data.json', 'utf-8');
