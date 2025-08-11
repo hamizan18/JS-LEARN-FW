@@ -31,4 +31,4 @@ async function main(){
     }
     console.log("\nSelesai semua proses!");
 }
-main();
+main().catch(err => console.log("Error: ", err));
