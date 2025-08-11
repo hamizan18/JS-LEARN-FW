@@ -24,11 +24,9 @@ async function main(){
     const data = await fs.readFile('data.json', 'utf-8');
     const users = JSON.parse(data);
 
-    console.log("\n📂 Data user:");
     for(let user of users){
         console.log(`Nama: ${user.nama}, Email: ${user.email}.`);
         await delay(1000);
     }
-    console.log("\nSelesai semua proses!");
 }
 main();
