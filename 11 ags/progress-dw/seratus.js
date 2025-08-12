@@ -8,17 +8,17 @@ async function main(){
 
     let progress = 0;
     const loading = setInterval(() => {
-        progress += 10;
+        progress += 1;
         process.stdout.write(`\rDownloading.. ${progress}%`);
         if(progress >= 100){
             clearInterval(loading);
             console.log("\nDownload selesai!\n");
         }
-    }, 300);
+    }, 40);
 
-    await delay(300 * 10 + 200)
+    await delay(40 * 100 + 100);
 
-    await delay(2000);
+    await delay(1000);
 
     const data = await fs.readFile('data.json', 'utf-8');
     const users = JSON.parse(data);
