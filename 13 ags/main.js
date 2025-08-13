@@ -1,5 +1,6 @@
 const express = require('express');
 const fs = require('fs/promises');
+const chalk = require('chalk');
 const app = express();
 const PORT = 3000;
 
@@ -8,11 +9,20 @@ function delay(ms){
 };
 
 function loading() {
-    const frames = ['Mencari', 'Mencari.', 'Mencari..', 'Mencari...'];
+    const frames = [
+        'Mencari    ',
+        ' Mencari   ',
+        '  Mencari  ',
+        '   Mencari ',
+        '    Mencari',
+        '   Mencari ',
+        '  Mencari  ',
+        ' Mencari   ',
+    ];
     let i = 0;
     return setInterval(() => {
         process.stdout.write(`\r${frames[i++ % frames.length]}`);
-    }, 300);
+    }, 120);
 };
 
 app.get('/', (req, res) => {
@@ -35,8 +45,9 @@ app.get('/about', (req, res) => {
 
 app.listen(PORT, async () => {
     const loadings = loading();
-    await delay(1500);
+    await delay(2800);
     clearInterval(loadings);
-    process.stdout.write('\r');
-    console.log(`\nServer sedang dijalankan di http://localhost:${PORT}`);
+    process.stdout.clearLine(0);
+    process.stdout.cursorTo(0);
+    console.log(chalk.blue(`Server sedang dijalankan di http://localhost:${PORT}`));
 });
